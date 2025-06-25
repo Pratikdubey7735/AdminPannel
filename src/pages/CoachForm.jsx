@@ -43,8 +43,8 @@ const CoachForm = ({ coach, onClose, onSuccess }) => {
 
     try {
       const url = coach
-        ? `https://adminbackend-b9bo.onrender.com/api/coaches/${coach._id}`
-        : "https://adminbackend-b9bo.onrender.com/api/coaches";
+        ? `http://localhost:5000/api/coaches/${coach._id}`
+        : "http://localhost:5000/api/coaches";
       
       const method = coach ? "put" : "post";
       
@@ -295,9 +295,15 @@ const CoachForm = ({ coach, onClose, onSuccess }) => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-gray-800 bg-opacity-70 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white appearance-none"
                     >
-                      <option value="beginner" className="bg-gray-800">Beginner</option>
-                      <option value="senior" className="bg-gray-800">Senior</option>
-                      <option value="master" className="bg-gray-800">Master</option>
+                      <option value="Beginner" className="bg-gray-800">Beginner</option>
+                      <option value="AdvancedBeginner" className="bg-gray-800">Advanced Beginner</option>
+                      <option value="Intermediate" className="bg-gray-800">Intermediate</option>
+                      <option value="AdvancedPart1" className="bg-gray-800">Advanced Part 1</option>
+                      <option value="AdvancedPart2" className="bg-gray-800">Advanced Part 2</option>
+                      <option value="SubJunior" className="bg-gray-800">Sub Junior</option>
+                      <option value="Junior" className="bg-gray-800">Junior</option>
+                      <option value="SeniorPart1" className="bg-gray-800"> Senior Part 1</option>
+                      <option value="SeniorPart2" className="bg-gray-800"> Senior Part 2</option>
                     </select>
                     <motion.div
                       className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"
