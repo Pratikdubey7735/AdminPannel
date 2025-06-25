@@ -43,8 +43,8 @@ const CoachForm = ({ coach, onClose, onSuccess }) => {
 
     try {
       const url = coach
-        ? `http://localhost:5000/api/coaches/${coach._id}`
-        : "http://localhost:5000/api/coaches";
+        ? `https://adminbackend-b9bo.onrender.com/api/coaches/${coach._id}`
+        : "https://adminbackend-b9bo.onrender.com/api/coaches";
       
       const method = coach ? "put" : "post";
       
