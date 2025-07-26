@@ -44,7 +44,7 @@ const CoachForm = ({ coach, onClose, onSuccess }) => {
       const url = coach
         ? `http://localhost:5000/api/coaches/${coach._id}`
         : "http://localhost:5000/api/coaches";
-
+      
       const method = coach ? "put" : "post";
 
       const submitData = coach && !showUpdatePassword
@@ -250,43 +250,61 @@ const CoachForm = ({ coach, onClose, onSuccess }) => {
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs text-purple-400 mb-1">
-                    Level
-                  </label>
-                  <select
-                    name="level"
-                    value={formData.level}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white"
-                  >
-                    <option value="Beginner">Beginner</option>
-                    <option value="AdvancedBeginner">Advanced Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="AdvancedPart1">Advanced Part 1</option>
-                    <option value="AdvancedPart2">Advanced Part 2</option>
-                    <option value="SubJunior">Sub Junior</option>
-                    <option value="Junior">Junior</option>
-                    <option value="SeniorPart1">Senior Part 1</option>
-                    <option value="SeniorPart2">Senior Part 2</option>
-                  </select>
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <div className="relative">
+                    <label className="absolute left-4 -top-3 px-1 text-xs bg-gray-900 text-purple-400">
+                      Level
+                    </label>
+                    <select
+                      name="level"
+                      value={formData.level}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-800 bg-opacity-70 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white appearance-none"
+                    >
+                      <option value="beginner" className="bg-gray-800">Beginner</option>
+                      <option value="senior" className="bg-gray-800">Senior</option>
+                      <option value="master" className="bg-gray-800">Master</option>
+                    </select>
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"
+                      initial={{ width: 0 }}
+                      whileFocus={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
+                </motion.div>
 
-                <div>
-                  <label className="block text-xs text-purple-400 mb-1">
-                    Status
-                  </label>
-                  <select
-                    name="status"
-                    value={formData.status}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white"
-                  >
-                    <option value="active">Active</option>
-                    <option value="pending">Pending</option>
-                    <option value="suspended">Suspended</option>
-                  </select>
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7 }}
+                >
+                  <div className="relative">
+                    <label className="absolute left-4 -top-3 px-1 text-xs bg-gray-900 text-purple-400">
+                      Status
+                    </label>
+                    <select
+                      name="status"
+                      value={formData.status}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-800 bg-opacity-70 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white appearance-none"
+                    >
+                      <option value="active" className="bg-gray-800">Active</option>
+                      <option value="pending" className="bg-gray-800">Pending</option>
+                      <option value="suspended" className="bg-gray-800">Suspended</option>
+                    </select>
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"
+                      initial={{ width: 0 }}
+                      whileFocus={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
+                </motion.div>
               </div>
 
               <div className="flex justify-end space-x-4 pt-6">

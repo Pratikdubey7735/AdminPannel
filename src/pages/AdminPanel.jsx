@@ -36,7 +36,7 @@ const CoachesDashboard = () => {
   const fetchCoaches = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch("http://localhost:5000/api/coaches");
+      const res = await fetch("https://adminbackend-b9bo.onrender.com/api/coaches");
       const data = await res.json();
       
       const coachesData = Array.isArray(data) ? data : 
@@ -64,7 +64,7 @@ const CoachesDashboard = () => {
     if (!window.confirm("Are you sure you want to delete this coach?")) return;
     
     try {
-      await fetch(`http://localhost:5000/api/coaches/${id}`, {
+      await fetch(`https://adminbackend-b9bo.onrender.com/api/coaches/${id}`, {
         method: "DELETE",
       });
       toast.success("Coach deleted successfully!", {
