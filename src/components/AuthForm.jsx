@@ -270,7 +270,6 @@ const AuthForm = ({ title, onSubmit, buttonText, isLogin }) => {
       >
         <div className="flex items-center space-x-2">
           <div className="h-1 w-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
-          <span>by- Pratik Dubey</span>
         </div>
       </motion.div>
     </div>
