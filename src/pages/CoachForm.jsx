@@ -42,8 +42,8 @@ const CoachForm = ({ coach, onClose, onSuccess }) => {
 
     try {
       const url = coach
-        ? `http://localhost:5000/api/coaches/${coach._id}`
-        : "http://localhost:5000/api/coaches";
+        ? `https://adminbackend-b9bo.onrender.com/api/coaches/${coach._id}`
+        : "https://adminbackend-b9bo.onrender.com/api/coaches";
       
       const method = coach ? "put" : "post";
 
@@ -58,7 +58,7 @@ const CoachForm = ({ coach, onClose, onSuccess }) => {
         const apiKey = import.meta.env.VITE_ADMIN_API_KEY;
 
         // Send general user update
-        await axios.post("http://localhost:5000/api/admin/trigger-update", {
+        await axios.post("https://adminbackend-b9bo.onrender.com/api/admin/trigger-update", {
           userId: coach._id,
           updatedData: {
             name: formData.name,
@@ -71,7 +71,7 @@ const CoachForm = ({ coach, onClose, onSuccess }) => {
 
         // Emit level update if level changed
         if (formData.level !== coach.level) {
-          await axios.post("http://localhost:5000/api/admin/update-coach-level", {
+          await axios.post("https://adminbackend-b9bo.onrender.com/api/admin/update-coach-level", {
             userId: coach._id,
             newLevel: formData.level,
             updatedCoachData: {
